@@ -98,6 +98,7 @@ code { font-family: var(--mono); background: #f3ece1; padding: 0 .3em; border-ra
 .reveal.right { background: var(--good-bg); border: 2px solid var(--good); }
 .reveal.wrong { background: var(--bad-bg); border: 2px solid var(--bad); }
 .mission-line { font-size: 14px; font-weight: 700; color: var(--muted); }
+.mission-line .goal.ok { color: var(--good); }
 
 /* ── 고르기 ── */
 .choose { display: flex; flex-direction: column; gap: 6px; }

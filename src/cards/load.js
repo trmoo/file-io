@@ -39,6 +39,31 @@ export const read3Card = {
     const disk = { 'save.txt': text };
     const results = Object.fromEntries(SNIPS.map((s) => [s.id, run(snipCode(s.call), { disk })]));
     const st = () => card(cid);
+    const labCode = (ops) => `f = open('save.txt', 'r')\n${ops.map((o) => `print(repr(f.${o}()))`).join('\n')}\n`;
+    const isEmptyOut = (l) => l === "''" || l === '[]';
+
+    // 해낸 것은 따로 기억한다 — 「📂 다시 열기」 로 실험 기록을 비워도 지난 실험 횟수와 「읽을 게 없음」 은 남는다
+    {
+      const ops = st().ops || [];
+      const seen = run(labCode(ops), { disk }).stdout.split('\n').some(isEmptyOut);
+      if ((st().reads || 0) < ops.length || (seen && !st().sawEmpty)) setCard(cid, { reads: Math.max(st().reads || 0, ops.length), sawEmpty: !!st().sawEmpty || seen });
+    }
+    const progress = () => {
+      const s = st();
+      const m = s.match || {};
+      return { match: !!s.checked && SNIPS.every((x) => ORDER[m[x.id]] === x.id), reads: s.reads || 0, empty: !!s.sawEmpty };
+    };
+
+    /* ── 오른쪽 아래: 해낼 것 세 가지 (해낸 것은 ✅) ── */
+    const goal = h('div', { class: 'mission-line' });
+    const paintGoal = () => {
+      const p = progress();
+      const item = (ok, label) => h('span', { class: 'goal' + (ok ? ' ok' : '') }, ok ? '✅ ' : '⬜ ', label);
+      fill(goal, '🎯 ',
+        item(p.match, '짝 셋 맞히기'), ' · ',
+        item(p.reads >= 3, `책갈피 실험 세 번 이상 (${Math.min(p.reads, 3)}/3)`), ' · ',
+        item(p.empty, '「읽을 게 없음」 한 번 보기'));
+    };
 
     /* ── 오른쪽: 짝 맞추기 ── */
     const match = h('div', { class: 'match' });
@@ -61,17 +86,21 @@ export const read3Card = {
           h('button', { class: 'btn primary', disabled: SNIPS.some((s) => m[s.id] === undefined) || (checked && allRight), onClick: () => {
             setCard(cid, { checked: true });
             paintMatch();
-            if (SNIPS.every((s) => ORDER[m[s.id]] === s.id)) { toast('⭕ 셋 다 맞았어요!', 'gold'); maybeDone(); } else toast('❌ 틀린 짝이 있어요. 빨간 것을 다시 골라 보세요', 'bad');
+            if (SNIPS.every((s) => ORDER[m[s.id]] === s.id)) {
+              const p = progress();
+              toast(p.reads >= 3 && p.empty ? '⭕ 셋 다 맞았어요!' : '⭕ 셋 다 맞았어요! 이제 왼쪽 책갈피 실험실도 해 보세요', 'gold');
+              maybeDone();
+            } else toast('❌ 틀린 짝이 있어요. 빨간 것을 다시 골라 보세요', 'bad');
           } }, '✔ 맞는지 보기'),
           checked && allRight ? h('div', { class: 'reveal right' }, '⭕ ', h('b', {}, 'readline'), ' 뒤에는 빈 줄이 하나 생겨요 — 읽은 줄 끝의 ↵ 와 print 의 줄바꿈이 겹쳐서예요. ', h('b', {}, 'readlines'), ' 는 줄마다 ↵ 가 붙은 채 리스트로 와요.') : null));
+      paintGoal();
     };
 
     /* ── 왼쪽: 책갈피 실험실 ── */
     const lab = h('div', { class: 'col tight' });
     const paintLab = () => {
       const ops = st().ops || [];
-      const code = `f = open('save.txt', 'r')\n${ops.map((o) => `print(repr(f.${o}()))`).join('\n')}\n`;
-      const r = run(code, { disk });
+      const r = run(labCode(ops), { disk });
       const reads = r.fileLog.filter((x) => x.op === 'read');
       const last = reads[reads.length - 1];
       const pos = last ? last.to : 0;
@@ -80,7 +109,14 @@ export const read3Card = {
         h('div', { class: 'mini-title' }, '🔖 책갈피 실험실 — 같은 파일을 연 채로 하나씩 읽어 보세요'),
         fileText(text, { mark: pos, sel: last ? [last.from, last.to] : null }),
         h('div', { class: 'row' },
-          ...['readline', 'read', 'readlines'].map((o) => h('button', { class: 'btn small code-btn', onClick: () => { setCard(cid, { ops: [...ops, o].slice(-8) }); paintLab(); maybeDone(); } }, `f.${o}()`)),
+          ...['readline', 'read', 'readlines'].map((o) => h('button', { class: 'btn small code-btn', onClick: () => {
+            const next = [...ops, o];
+            // 방금 읽은 것이 빈 글자('' · [])였나 — 책갈피가 끝에 닿았다는 뜻
+            const lines = run(labCode(next), { disk }).stdout.split('\n');
+            const empty = isEmptyOut(lines[next.length - 1] || '');
+            setCard(cid, { ops: next.slice(-8), reads: (st().reads || 0) + 1, sawEmpty: !!st().sawEmpty || empty });
+            paintLab(); maybeDone();
+          } }, `f.${o}()`)),
           h('button', { class: 'btn small', onClick: () => { setCard(cid, { ops: [] }); paintLab(); } }, '📂 다시 열기')),
         h('div', { class: 'hist' },
           ops.length ? null : h('div', { class: 'muted small' }, '아직 읽지 않았어요. 책갈피 ▼ 가 맨 앞에 있어요.'),
@@ -88,25 +124,22 @@ export const read3Card = {
             h('code', {}, `f.${o}()`), ' → ', h('code', { class: 'ret' }, outs[i] ?? ''),
             /^''$|^\[\]$/.test(outs[i] || '') ? h('span', { class: 'empty-tag' }, '읽을 게 없음!') : null))),
         tip('책갈피는 <b>읽은 만큼 앞으로</b> 가요. 끝까지 간 뒤에 또 읽으면 빈 글자 <code>\'\'</code> 가 나와요. 처음부터 다시 읽으려면 파일을 <b>다시 열어야</b> 해요.', '🔖'));
+      paintGoal();
     };
 
     function maybeDone() {
-      const m = st().match || {};
-      const ops = st().ops || [];
-      const okMatch = st().checked && SNIPS.every((s) => ORDER[m[s.id]] === s.id);
-      const r = run(`f = open('save.txt', 'r')\n${ops.map((o) => `print(repr(f.${o}()))`).join('\n')}\n`, { disk });
-      const sawEmpty = r.stdout.split('\n').some((l) => l === "''" || l === '[]');
-      if (okMatch && ops.length >= 3 && sawEmpty) finish(api, cid, '읽기 삼형제와 책갈피를 익혔어요!');
+      const p = progress();
+      if (p.match && p.reads >= 3 && p.empty) finish(api, cid, '읽기 삼형제와 책갈피를 익혔어요!');
     }
 
     paintMatch();
     paintLab();
+    maybeDone(); // 예전에 조건을 다 채워 두었다면 열자마자 완료로
     fill(body, h('div', { class: 'split l40' },
       h('div', { class: 'col' },
         story(`디스크의 save.txt 를 <b>읽는</b> 방법은 셋이에요. 오른쪽 코드와 결과의 짝을 맞춰 보고, 아래 실험실에서 <b>책갈피</b>가 어떻게 움직이는지 보세요.`, '📖'),
         lab),
-      h('div', { class: 'col' }, match,
-        h('div', { class: 'mission-line' }, '🎯 짝 셋 맞히기 · 책갈피 실험 세 번 이상 · 「읽을 게 없음」 한 번 보기'))));
+      h('div', { class: 'col' }, match, goal)));
   },
 };
 
