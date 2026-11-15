@@ -1,0 +1,1192 @@
+{
+ "python": "3.12.3",
+ "cases": [
+  {
+   "name": "교재 · english.txt 만들기",
+   "stdout": "파일을 만들었습니다.",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "english.txt": "important 중요한\nfuture 미래\nlanguage 언어"
+   }
+  },
+  {
+   "name": "교재 · readline",
+   "stdout": "important 중요한",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "english.txt": "important 중요한\nfuture 미래\nlanguage 언어"
+   }
+  },
+  {
+   "name": "교재 · read",
+   "stdout": "important 중요한\nfuture 미래\nlanguage 언어",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "english.txt": "important 중요한\nfuture 미래\nlanguage 언어"
+   }
+  },
+  {
+   "name": "교재 · readlines",
+   "stdout": "['important 중요한\\n', 'future 미래\\n', 'language 언어']\n줄 수: 3\n1 번째 줄: important 중요한\n2 번째 줄: future 미래\n3 번째 줄: language 언어",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "english.txt": "important 중요한\nfuture 미래\nlanguage 언어"
+   }
+  },
+  {
+   "name": "교재 · with 와 for",
+   "stdout": "important 중요한\nfuture 미래\nlanguage 언어",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "english.txt": "important 중요한\nfuture 미래\nlanguage 언어"
+   }
+  },
+  {
+   "name": "교재 · w w a",
+   "stdout": "두 번째 줄\n세 번째 줄",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "memo.txt": "두 번째 줄\n세 번째 줄\n"
+   }
+  },
+  {
+   "name": "교재 · 없는 파일",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 1, in <module>\n    f = open(\"newfile.txt\", \"r\")\n        ^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'newfile.txt'",
+   "code": 1,
+   "files": {}
+  },
+  {
+   "name": "write 에 숫자",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 5, in <module>\n    f.write(level)\nTypeError: write() argument must be str, not int",
+   "code": 1,
+   "files": {
+    "save.txt": "비트"
+   }
+  },
+  {
+   "name": "줄바꿈 없이 이어 쓰기",
+   "stdout": "비트34",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트34"
+   }
+  },
+  {
+   "name": "write 는 쓴 글자 수를 돌려준다",
+   "stdout": "3\n3",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": "비트\nabc"
+   }
+  },
+  {
+   "name": "print 의 file=",
+   "stdout": "비트 3\n끝",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": "비트 3\n끝\n"
+   }
+  },
+  {
+   "name": "writelines",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "writelines 에 숫자",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 2, in <module>\n    f.writelines(['비트\\n', 3])\nTypeError: write() argument must be str, not int",
+   "code": 1,
+   "files": {
+    "a.txt": "비트\n"
+   }
+  },
+  {
+   "name": "write 에 두 개",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 2, in <module>\n    f.write('비트', '\\n')\nTypeError: TextIOWrapper.write() takes exactly one argument (2 given)",
+   "code": 1,
+   "files": {
+    "a.txt": ""
+   }
+  },
+  {
+   "name": "w 는 여는 순간 지운다",
+   "stdout": "''",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": ""
+   }
+  },
+  {
+   "name": "read 두 번",
+   "stdout": "'비트\\n3\\n4\\n'\n''",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "readline 차례로",
+   "stdout": "'비트\\n'\n'3\\n'\n'4\\n'\n''",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "readline 다음 read",
+   "stdout": "'3\\n4\\n'",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "read 에 글자 수",
+   "stdout": "'비트'\n'\\n'\n'3'",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "빈 파일 readlines",
+   "stdout": "[]\n''",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "empty.txt": ""
+   }
+  },
+  {
+   "name": "enumerate 로 줄 번호",
+   "stdout": "0 비트\n1 3\n2 4",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "list(f)",
+   "stdout": "['비트\\n', '3\\n', '4\\n']",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "for line in open",
+   "stdout": "비트\n3\n4",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "줄바꿈이 붙은 이름",
+   "stdout": "안녕, 비트\n! 반가워",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "글자 레벨에 숫자 빼기",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 5, in <module>\n    print('다음 레벨까지', 10 - level, '번')\n                           ~~~^~~~~~~\nTypeError: unsupported operand type(s) for -: 'int' and 'str'",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "글자 레벨에 숫자 더하기",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 3, in <module>\n    level = level + 1\n            ~~~~~~^~~\nTypeError: can only concatenate str (not \"int\") to str",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "strip 과 int",
+   "stdout": "안녕, 비트! 반가워\n다음 레벨까지 7 번\n'3\\n' 3 '3'",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "콜라 세기",
+   "stdout": "그냥 비교: 0\nstrip 비교: 3",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "sales.txt": "콜라\n사이다\n콜라\n콜라\n"
+   }
+  },
+  {
+   "name": "줄이 모자란 세이브",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 4, in <module>\n    hunger = int(lines[2])\n                 ~~~~~^^^\nIndexError: list index out of range",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n3\n"
+   }
+  },
+  {
+   "name": "숫자가 아닌 레벨",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 2, in <module>\n    level = int(lines[1])\n            ^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '구십구\\n'",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n구십구\n4\n"
+   }
+  },
+  {
+   "name": "닫기 전에 다시 읽기",
+   "stdout": "저장된 내용: ''",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n"
+   }
+  },
+  {
+   "name": "닫은 뒤에 다시 읽기",
+   "stdout": "저장된 내용: '비트\\n'",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n"
+   }
+  },
+  {
+   "name": "flush",
+   "stdout": "'비트\\n'\n'비트\\n'",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n"
+   }
+  },
+  {
+   "name": "같은 이름으로 다시 열면 앞의 파일이 닫힌다",
+   "stdout": "'처음'",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": "처음"
+   }
+  },
+  {
+   "name": "함수 안에서 닫지 않음",
+   "stdout": "'함수 안'",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": "함수 안"
+   }
+  },
+  {
+   "name": "이름 없이 쓰기",
+   "stdout": "'이름 없이'",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": "이름 없이"
+   }
+  },
+  {
+   "name": "del 하면 닫힌다",
+   "stdout": "'del'",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": "del"
+   }
+  },
+  {
+   "name": "다른 이름이 붙들고 있으면 안 닫힌다",
+   "stdout": "''\n'붙듦'",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": "붙듦"
+   }
+  },
+  {
+   "name": "리스트 안에 있으면 안 닫힌다",
+   "stdout": "''\n'리스트'",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": "리스트"
+   }
+  },
+  {
+   "name": "끝까지 안 닫음",
+   "stdout": "프로그램 끝",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": "끝날 때 쏟아짐\n"
+   }
+  },
+  {
+   "name": "안 닫고 오류로 멈춤",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 3, in <module>\n    x = 1 / 0\n        ~~^~~\nZeroDivisionError: division by zero",
+   "code": 1,
+   "files": {
+    "a.txt": "오류 전에 쓴 것\n"
+   }
+  },
+  {
+   "name": "with 안에서 오류",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 3, in <module>\n    x = int('abc')\n        ^^^^^^^^^^\nValueError: invalid literal for int() with base 10: 'abc'",
+   "code": 1,
+   "files": {
+    "a.txt": "오류 전\n"
+   }
+  },
+  {
+   "name": "a 로 두 파일",
+   "stdout": "처음\ng1\nf1",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "log.txt": "처음\ng1\nf1\n"
+   }
+  },
+  {
+   "name": "with 뒤에는 닫혀 있다",
+   "stdout": "False\nTrue",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": "hi\n"
+   }
+  },
+  {
+   "name": "with 뒤에 쓰기",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 3, in <module>\n    f.write('bye\\n')\nValueError: I/O operation on closed file.",
+   "code": 1,
+   "files": {
+    "a.txt": "hi\n"
+   }
+  },
+  {
+   "name": "with 에 파일이 아닌 것",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 1, in <module>\n    with 3 as f:\nTypeError: 'int' object does not support the context manager protocol",
+   "code": 1,
+   "files": {}
+  },
+  {
+   "name": "with 두 개 한 줄",
+   "stdout": "비트\n3\n4",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "copy.txt": "비트\n3\n4\n",
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "닫은 파일에 쓰기",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 3, in <module>\n    f.write('x')\nValueError: I/O operation on closed file.",
+   "code": 1,
+   "files": {
+    "a.txt": ""
+   }
+  },
+  {
+   "name": "닫은 파일 읽기",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 3, in <module>\n    print(f.read())\n          ^^^^^^^^\nValueError: I/O operation on closed file.",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "닫은 파일 for",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 3, in <module>\n    for line in f:\nValueError: I/O operation on closed file.",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "두 번 닫기",
+   "stdout": "괜찮다",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": ""
+   }
+  },
+  {
+   "name": "w 로 연 파일 읽기",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 2, in <module>\n    print(f.read())\n          ^^^^^^^^\nio.UnsupportedOperation: not readable",
+   "code": 1,
+   "files": {
+    "save.txt": ""
+   }
+  },
+  {
+   "name": "r 로 연 파일에 쓰기",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 2, in <module>\n    f.write('99\\n')\nio.UnsupportedOperation: not writable",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "except ValueError 로 잡기",
+   "stdout": "ValueError 로 잡혔다",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "except OSError 로 잡기",
+   "stdout": "잡음: [Errno 2] No such file or directory: 'none.txt'",
+   "stderr": "",
+   "code": 0,
+   "files": {}
+  },
+  {
+   "name": "대문자 모드",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 1, in <module>\n    f = open('a.txt', 'W')\n        ^^^^^^^^^^^^^^^^^^\nValueError: invalid mode: 'W'",
+   "code": 1,
+   "files": {}
+  },
+  {
+   "name": "모드 두 개",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 1, in <module>\n    f = open('a.txt', 'rw')\n        ^^^^^^^^^^^^^^^^^^^\nValueError: must have exactly one of create/read/write/append mode",
+   "code": 1,
+   "files": {}
+  },
+  {
+   "name": "모드에 따옴표 없음",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 1, in <module>\n    f = open('a.txt', w)\n                      ^\nNameError: name 'w' is not defined",
+   "code": 1,
+   "files": {}
+  },
+  {
+   "name": "x 모드",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 1, in <module>\n    f = open('save.txt', 'x')\n        ^^^^^^^^^^^^^^^^^^^^^\nFileExistsError: [Errno 17] File exists: 'save.txt'",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "x 모드로 새로",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "new.txt": "새것\n"
+   }
+  },
+  {
+   "name": "없는 폴더에 쓰기",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 1, in <module>\n    f = open('data/save.txt', 'w')\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'data/save.txt'",
+   "code": 1,
+   "files": {}
+  },
+  {
+   "name": "있는 폴더에 쓰기",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "data/save.txt": "비트\n"
+   }
+  },
+  {
+   "name": "모드 이름 붙이기",
+   "stdout": "<_io.TextIOWrapper name='a.txt' mode='w' encoding='utf-8'>\na.txt w utf-8",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": "비트\n"
+   }
+  },
+  {
+   "name": "파일 객체 출력",
+   "stdout": "<_io.TextIOWrapper name='a.txt' mode='w' encoding='utf-8'>\n<class '_io.TextIOWrapper'>\n<_io.TextIOWrapper name='a.txt' mode='w' encoding='utf-8'>",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": ""
+   }
+  },
+  {
+   "name": "메소드 오타",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 2, in <module>\n    f.wirte('x')\n    ^^^^^^^\nAttributeError: '_io.TextIOWrapper' object has no attribute 'wirte'. Did you mean: 'write'?",
+   "code": 1,
+   "files": {
+    "a.txt": ""
+   }
+  },
+  {
+   "name": "readlines 오타",
+   "stdout": "비트",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 4, in <module>\n    lines = f.readlins()\n            ^^^^^^^^^^\nAttributeError: '_io.TextIOWrapper' object has no attribute 'readlins'. Did you mean: 'readline'?",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "open 에 아무것도 없음",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 1, in <module>\n    f = open()\n        ^^^^^^\nTypeError: open() missing required argument 'file' (pos 1)",
+   "code": 1,
+   "files": {}
+  },
+  {
+   "name": "len(f)",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 2, in <module>\n    print(len(f))\n          ^^^^^^\nTypeError: object of type '_io.TextIOWrapper' has no len()",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "f 를 글자에 더하기",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 2, in <module>\n    print('내용: ' + f)\n          ~~~~~~~~~^~~\nTypeError: can only concatenate str (not \"_io.TextIOWrapper\") to str",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "없으면 새 알",
+   "stdout": "새 알을 받았어요!\n알 0 0",
+   "stderr": "",
+   "code": 0,
+   "files": {}
+  },
+  {
+   "name": "있으면 불러오기",
+   "stdout": "비트 3 4",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "예외 메시지 출력",
+   "stdout": "문제: [Errno 2] No such file or directory: 'save.txt'\nFileNotFoundError",
+   "stderr": "",
+   "code": 0,
+   "files": {}
+  },
+  {
+   "name": "세이브를 a 로 세 번",
+   "stdout": "9 줄\n불러온 레벨: 1",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n1\n0\n비트\n2\n0\n비트\n3\n0\n"
+   }
+  },
+  {
+   "name": "일지를 w 로 세 번",
+   "stdout": "레벨 2",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "log.txt": "레벨 2\n"
+   }
+  },
+  {
+   "name": "일지를 a 로 세 번",
+   "stdout": "알이 깨어났다\n레벨 1\n레벨 2",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "log.txt": "알이 깨어났다\n레벨 1\n레벨 2\n"
+   }
+  },
+  {
+   "name": "카드2 첫 세이브 · 처음 코드",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 4, in <module>\n    f = open('save.txt', ___)   # 쓰기 모드\n                         ^^^\nNameError: name '___' is not defined",
+   "code": 1,
+   "files": {}
+  },
+  {
+   "name": "카드2 첫 세이브 · 모범 답",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트"
+   }
+  },
+  {
+   "name": "카드2 첫 세이브 · 흔한 실수 · 읽기 모드",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 4, in <module>\n    f = open('save.txt', 'r')\n        ^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'save.txt'",
+   "code": 1,
+   "files": {}
+  },
+  {
+   "name": "카드2 첫 세이브 · 흔한 실수 · 이름 대신 글자",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트"
+   }
+  },
+  {
+   "name": "카드2 첫 세이브 · 흔한 실수 · 다른 파일 이름",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save": "비트"
+   }
+  },
+  {
+   "name": "카드3 버그 둘 · 처음 코드",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 6, in <module>\n    f.write(level)\nTypeError: write() argument must be str, not int",
+   "code": 1,
+   "files": {
+    "save.txt": "비트"
+   }
+  },
+  {
+   "name": "카드3 버그 둘 · 모범 답",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드3 버그 둘 · 다른 정답 · print 의 file=",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드3 버그 둘 · 다른 정답 · 한 번에 쓰기",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4"
+   }
+  },
+  {
+   "name": "카드3 버그 둘 · 흔한 실수 · str 만 고침 (줄 붙음)",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트34"
+   }
+  },
+  {
+   "name": "카드3 버그 둘 · 흔한 실수 · 값을 글자로 적음",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드3 버그 둘 · 흔한 실수 · 줄바꿈 앞에 붙임",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n34\n"
+   }
+  },
+  {
+   "name": "카드5 되살리기 · 처음 코드",
+   "stdout": "안녕, 비트\n! 다시 만나서 반가워",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 9, in <module>\n    if level >= 3:\n       ^^^^^^^^^^\nTypeError: '>=' not supported between instances of 'str' and 'int'",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드5 되살리기 · 모범 답",
+   "stdout": "안녕, 비트! 다시 만나서 반가워\n벌써 레벨 3 이네!",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드5 되살리기 · 다른 정답 · with 로",
+   "stdout": "안녕, 비트! 다시 만나서 반가워\n벌써 레벨 3 이네!",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드5 되살리기 · 다른 정답 · readline 세 번",
+   "stdout": "안녕, 비트! 다시 만나서 반가워\n벌써 레벨 3 이네!",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드5 되살리기 · 흔한 실수 · strip 만 (숫자로 안 바꿈)",
+   "stdout": "안녕, 비트! 다시 만나서 반가워",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 9, in <module>\n    if level >= 3:\n       ^^^^^^^^^^\nTypeError: '>=' not supported between instances of 'str' and 'int'",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드5 되살리기 · 흔한 실수 · int 만 (이름에 ↵)",
+   "stdout": "안녕, 비트\n! 다시 만나서 반가워\n벌써 레벨 3 이네!",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드5 되살리기 · 흔한 실수 · 자리를 하나씩 밀림",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 6, in <module>\n    hunger = int(lines[0])\n             ^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '비트\\n'",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드5 되살리기 · 모범 답 · 끝 줄바꿈 없는 세이브",
+   "stdout": "안녕, 별! 다시 만나서 반가워\n배고파요… 밥 주세요",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "별\n1\n9"
+   }
+  },
+  {
+   "name": "카드6 바구니 · 시연 코드",
+   "stdout": "저장된 내용: ",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드6 바구니 · 모범 답",
+   "stdout": "저장된 내용: 비트\n3\n4",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드6 바구니 · 다른 정답 · with 둘",
+   "stdout": "저장된 내용: 비트\n3\n4",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드6 바구니 · 흔한 실수 · close 만 (with 안 씀)",
+   "stdout": "저장된 내용: 비트\n3\n4",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드6 바구니 · 흔한 실수 · 확인까지 with 안에",
+   "stdout": "저장된 내용: ",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드7 처음 온 친구 · 처음 코드 · 빈 컴퓨터",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 1, in <module>\n    with open('save.txt', 'r') as f:\n         ^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'save.txt'",
+   "code": 1,
+   "files": {}
+  },
+  {
+   "name": "카드7 처음 온 친구 · 처음 코드 · 세이브 있음",
+   "stdout": "불러오기 성공!",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드7 처음 온 친구 · 모범 답 · 빈 컴퓨터",
+   "stdout": "새 알을 받았어요!",
+   "stderr": "",
+   "code": 0,
+   "files": {}
+  },
+  {
+   "name": "카드7 처음 온 친구 · 모범 답 · 세이브 있음",
+   "stdout": "불러오기 성공!",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드7 처음 온 친구 · 다른 정답 · except 블록에 with 만 · 빈 컴퓨터",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {}
+  },
+  {
+   "name": "카드7 처음 온 친구 · 다른 정답 · except 블록에 with 만 · 세이브 있음",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드7 처음 온 친구 · 흔한 실수 · 다른 예외를 잡음 · 빈 컴퓨터",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 2, in <module>\n    with open('save.txt', 'r') as f:\n         ^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'save.txt'",
+   "code": 1,
+   "files": {}
+  },
+  {
+   "name": "카드7 처음 온 친구 · 흔한 실수 · 다른 예외를 잡음 · 세이브 있음",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드7 처음 온 친구 · 흔한 실수 · 새 알 값을 안 정함 · 빈 컴퓨터",
+   "stdout": "새 알을 받았어요!",
+   "stderr": "",
+   "code": 0,
+   "files": {}
+  },
+  {
+   "name": "카드7 처음 온 친구 · 흔한 실수 · 새 알 값을 안 정함 · 세이브 있음",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드7 처음 온 친구 · 흔한 실수 · 언제나 새 알 · 빈 컴퓨터",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {}
+  },
+  {
+   "name": "카드7 처음 온 친구 · 흔한 실수 · 언제나 새 알 · 세이브 있음",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드8 세이브 a",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n2\n2\n비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드8 세이브 w",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n3\n4\n"
+   }
+  },
+  {
+   "name": "카드9 일지 쓰기 · 처음 코드",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "log.txt": "비트가 레벨 2가 되었다\n"
+   }
+  },
+  {
+   "name": "카드9 일지 쓰기 · 모범 답",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "log.txt": "비트가 알에서 깨어났다\n비트와 공놀이를 했다\n비트가 레벨 2가 되었다\n"
+   }
+  },
+  {
+   "name": "카드9 일지 쓰기 · 다른 정답 · print 의 file=",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "log.txt": "비트가 알에서 깨어났다\n비트와 공놀이를 했다\n비트가 레벨 2가 되었다\n"
+   }
+  },
+  {
+   "name": "카드9 일지 쓰기 · 흔한 실수 · 줄바꿈 빠짐",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "log.txt": "비트가 알에서 깨어났다\n비트와 공놀이를 했다\n비트가 레벨 2가 되었다"
+   }
+  },
+  {
+   "name": "카드9 일지 쓰기 · 흔한 실수 · 읽기 모드",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 3, in <module>\n    f.write(event + '\\n')\nio.UnsupportedOperation: not writable",
+   "code": 1,
+   "files": {
+    "log.txt": "비트가 알에서 깨어났다\n비트와 공놀이를 했다\n"
+   }
+  },
+  {
+   "name": "카드9 일지 읽기 · 처음 코드",
+   "stdout": "비트가 알에서 깨어났다\n\n비트와 공놀이를 했다\n\n비트가 레벨 2가 되었다",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "log.txt": "비트가 알에서 깨어났다\n비트와 공놀이를 했다\n비트가 레벨 2가 되었다\n"
+   }
+  },
+  {
+   "name": "카드9 일지 읽기 · 모범 답",
+   "stdout": "비트가 알에서 깨어났다\n비트와 공놀이를 했다\n비트가 레벨 2가 되었다",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "log.txt": "비트가 알에서 깨어났다\n비트와 공놀이를 했다\n비트가 레벨 2가 되었다\n"
+   }
+  },
+  {
+   "name": "카드9 일지 읽기 · 다른 정답 · readlines",
+   "stdout": "비트가 알에서 깨어났다\n비트와 공놀이를 했다\n비트가 레벨 2가 되었다",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "log.txt": "비트가 알에서 깨어났다\n비트와 공놀이를 했다\n비트가 레벨 2가 되었다\n"
+   }
+  },
+  {
+   "name": "카드9 일지 읽기 · 다른 정답 · end=''",
+   "stdout": "비트가 알에서 깨어났다\n비트와 공놀이를 했다\n비트가 레벨 2가 되었다",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "log.txt": "비트가 알에서 깨어났다\n비트와 공놀이를 했다\n비트가 레벨 2가 되었다\n"
+   }
+  },
+  {
+   "name": "카드9 일지 읽기 · 흔한 실수 · read 를 줄마다",
+   "stdout": "비트와 공놀이를 했다\n비트가 레벨 2가 되었다",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "log.txt": "비트가 알에서 깨어났다\n비트와 공놀이를 했다\n비트가 레벨 2가 되었다\n"
+   }
+  },
+  {
+   "name": "카드11 ⭐ 깨진 세이브 · 모범 불러오기",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 5, in <module>\n    level = int(lines[1])\n            ^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '구십구\\n'",
+   "code": 1,
+   "files": {
+    "save.txt": "비트\n구십구\n4\n"
+   }
+  },
+  {
+   "name": "카드11 ⭐ 깨진 세이브 · 더 해 보기 답",
+   "stdout": "세이브 파일이 깨져서 새 알로 시작해요",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n구십구\n4\n"
+   }
+  },
+  {
+   "name": "카드11 ⭐ 짧은 세이브 · 더 해 보기 답",
+   "stdout": "세이브 파일이 깨져서 새 알로 시작해요",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "save.txt": "비트\n"
+   }
+  },
+  {
+   "name": "확인 문제 q1",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 1, in <module>\n    f = open(\"newfile.txt\", \"r\")\n        ^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'newfile.txt'",
+   "code": 1,
+   "files": {}
+  },
+  {
+   "name": "확인 문제 q2 · 보기 1",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "english.txt": "important 중요한\nfuture 미래\nlanguage 언어"
+   }
+  },
+  {
+   "name": "확인 문제 q2 · 보기 2",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "english.txt": "important 중요한future 미래\nlanguage 언어\n"
+   }
+  },
+  {
+   "name": "확인 문제 q2 · 보기 3",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 2, in <module>\n    f.read(\"important 중요한\\n\")\nTypeError: argument should be integer or None, not 'str'",
+   "code": 1,
+   "files": {
+    "english.txt": ""
+   }
+  },
+  {
+   "name": "확인 문제 q2 · 보기 4",
+   "stdout": "",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "english.txt": "important 중요한\nfuture 미래\n"
+   }
+  },
+  {
+   "name": "확인 문제 q3",
+   "stdout": "important 중요한",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "english.txt": "important 중요한\nfuture 미래\nlanguage 언어"
+   }
+  },
+  {
+   "name": "확인 문제 q4",
+   "stdout": "두 번째 기록\n세 번째 기록",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "record.txt": "두 번째 기록\n세 번째 기록\n"
+   }
+  },
+  {
+   "name": "확인 문제 q5",
+   "stdout": "''",
+   "stderr": "",
+   "code": 0,
+   "files": {
+    "a.txt": "hi"
+   }
+  },
+  {
+   "name": "확인 문제 q6",
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"C:\\project\\main.py\", line 3, in <module>\n    f.write(level)\nTypeError: write() argument must be str, not int",
+   "code": 1,
+   "files": {
+    "save.txt": ""
+   }
+  }
+ ]
+}
